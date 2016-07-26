@@ -108,7 +108,9 @@ NS_ASSUME_NONNULL_END
 
 + (NSUInteger)correctionForPrecision:(NSUInteger)precision {
     
-    NSUInteger precisionDiff = (precision > 0 ? (kPNRequiredTimeTokenPrecision - precision) : 0);
+    NSInteger diff = (kPNRequiredTimeTokenPrecision - precision);
+    
+    NSUInteger precisionDiff = (diff > 0 ? diff : 0);
     NSUInteger correctionMultiplier = 1;
     while (precisionDiff != 0) {
         
